@@ -3,6 +3,9 @@ import time
 import os
 from twilio.rest import Client
 
+TEST_MODE = True
+send_text("✅ TEST ALERT: Ticket bot is working and SMS is connected.")
+
 URL = "https://www.ticketmaster.com/event/0E006441FD01CA39"
 MAX_PRICE = 315
 
@@ -39,16 +42,16 @@ with sync_playwright() as p:
 
     last_alert = 0
 
-    while True:
-        try:
-            found = check_tickets(page)
+#    while True:
+  #      try:
+    #        found = check_tickets(page)
 
             # prevent spam (1 alert per 5 min max)
-            if found:
-                now = time.time()
-                if now - last_alert > 300:
-                    last_alert = now
-
+     #       if found:
+     #           now = time.time()
+       #         if now - last_alert > 300:
+       #             last_alert = now
+print("Test run complete")
         except Exception as e:
             print("Error:", e)
 
